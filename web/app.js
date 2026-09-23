@@ -14,7 +14,7 @@ function selectFile(candidate) {
   if (!candidate) return;
   const ext = candidate.name.split('.').pop().toLowerCase();
   if (!extensions.has(ext)) { setStatus('Choose MP4, MOV, M4V, MP3, M4A, WAV, or WebM.', true); return; }
-  if (candidate.size > 150 * 1024 * 1024) { setStatus('Choose a file smaller than 150 MB.', true); return; }
+  if (candidate.size > 800 * 1024 * 1024) { setStatus('Choose a file up to 800 MB.', true); return; }
   file = candidate;
   if (objectURL) URL.revokeObjectURL(objectURL);
   objectURL = URL.createObjectURL(file);

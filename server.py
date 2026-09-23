@@ -10,7 +10,7 @@ from urllib.parse import unquote, urlparse
 
 ROOT = Path(__file__).parent
 WEB = ROOT / "web"
-MAX_UPLOAD = 150 * 1024 * 1024
+MAX_UPLOAD = 800 * 1024 * 1024
 ALLOWED = {".mp4", ".mov", ".m4v", ".mp3", ".m4a", ".wav", ".webm"}
 MIME = {".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".svg": "image/svg+xml"}
 
@@ -62,7 +62,7 @@ class Handler(BaseHTTPRequestHandler):
         except ValueError:
             length = 0
         if not 0 < length <= MAX_UPLOAD:
-            self.send_json(413, {"error": "Choose a media file smaller than 150 MB."})
+            self.send_json(413, {"error": "Choose a media file up to 800 MB."})
             return
         suffix = Path(self.headers.get("X-File-Name", "recording.mp4")).suffix.lower()
         if suffix not in ALLOWED:

@@ -9,7 +9,7 @@ As someone interested in videography and cinematography, I wanted a caption tool
 ## Features
 
 - Local speech transcription with [faster-whisper](https://github.com/SYSTRAN/faster-whisper) running on CPU; choose tiny, base, or small model.
-- MP4, MOV, M4V, MP3, M4A, WAV, and WebM input up to 150 MB.
+- MP4, MOV, M4V, MP3, M4A, WAV, and WebM input up to 800 MB.
 - Preview media and jump to a caption's start time by selecting its text or timestamps.
 - Edit, add, and remove caption segments, with timestamp validation on export.
 - Download corrected captions as SRT or WebVTT.
@@ -38,7 +38,7 @@ The browser uploads the selected file to a Python standard-library HTTP server b
 - Captions are based on model segments, which may be long. A future version could split long captions using word timestamps and reading-speed rules.
 - A local browser session does not persist edits. Export before closing or refreshing.
 - There is no speaker identification or burned-in video rendering. The current deliverable is a subtitle file for an editor or video platform.
-- There is a 150 MB upload cap, and CPU transcription can take several minutes for long footage.
+- There is a 800 MB upload cap, and Large footage needs enough free disk space for a temporary copy, and CPU transcription can take considerably longer for long footage.
 
 ## Portfolio summary
 
