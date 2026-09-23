@@ -78,8 +78,8 @@ function render() {
   $('add-caption').disabled = !file;
   if (!captions.length) {
     const empty = document.createElement('div'); empty.className = 'empty';
-    const quote = document.createElement('span'); quote.textContent = '“';
-    const text = document.createElement('p'); text.textContent = 'Your captions will appear here. Bring in a file and start transcription.';
+    const quote = document.createElement('span'); quote.textContent = '—';
+    const text = document.createElement('p'); text.textContent = 'Captions appear here after transcription.';
     empty.append(quote, text); timeline.append(empty); return;
   }
   captions.forEach((caption, index) => {

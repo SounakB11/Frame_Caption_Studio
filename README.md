@@ -26,7 +26,7 @@ pip install -r requirements.txt
 python server.py
 ```
 
-Open **http://127.0.0.1:8765**. Choose a short clip for the first run and select the **Tiny** model if you want the quickest trial. Click **Transcribe file**, correct the captions, and download SRT or VTT. Press Control-C in Terminal to stop the server.
+Open **http://127.0.0.1:8766**. Choose a short clip for the first run and select the **Tiny** model if you want the quickest trial. Click **Transcribe file**, correct the captions, and download SRT or VTT. Press Control-C in Terminal to stop the server.
 
 ## Architecture
 
