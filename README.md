@@ -2,6 +2,38 @@
 
 A local caption workflow for video and audio. Import footage, transcribe speech, correct text and timestamps beside a media preview, then export SRT or WebVTT subtitles.
 
+## Try it in five minutes
+
+You need macOS, Python 3.10 or newer, and an internet connection for the **first** model download. The included sample is a 6-second, computer-generated voice recording: [`examples/first-run.wav`](examples/first-run.wav). No personal footage is needed.
+
+1. Download or clone this repository. Open Terminal **inside the project folder**.
+2. Set up and start the local server:
+
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
+   python server.py
+   ```
+
+3. Keep Terminal open and visit **http://127.0.0.1:8766** on the same computer.
+4. Choose `examples/first-run.wav`, select **Tiny**, and click **Transcribe**. The first run downloads a model and may take longer.
+5. Play the sample and check the transcript against the spoken words below. Fix any words or timestamps, then click **Download .SRT**.
+
+The recording says: **“Welcome to Frame Caption Studio. Review the words, adjust the timing, and export your captions.”** Speech recognition may punctuate or divide this into segments differently. After reviewing it, an SRT export should contain numbered captions with start/end timestamps and those words. For example, an edited export might look like this (timestamps are illustrative):
+
+```srt
+1
+00:00:00,000 --> 00:00:02,200
+Welcome to Frame Caption Studio.
+
+2
+00:00:02,200 --> 00:00:06,300
+Review the words, adjust the timing, and export your captions.
+```
+
+The app returns a subtitle file, **not** a new video with captions burned in. Press **Control-C** in Terminal to stop the server. If the model fails to download, check your internet connection and try again. If port 8766 is in use, stop the other Frame Caption Studio server before restarting this one.
+
 ## Why I built it
 
 As someone interested in videography and cinematography, I wanted a caption tool that keeps the editing step visible. Automatic transcription is a useful draft; the final wording, timing, names, and punctuation still need a human pass.
@@ -38,7 +70,7 @@ The browser uploads the selected file to a Python standard-library HTTP server b
 - Captions are based on model segments, which may be long. A future version could split long captions using word timestamps and reading-speed rules.
 - A local browser session does not persist edits. Export before closing or refreshing.
 - There is no speaker identification or burned-in video rendering. The current deliverable is a subtitle file for an editor or video platform.
-- There is a 800 MB upload cap, and Large footage needs enough free disk space for a temporary copy, and CPU transcription can take considerably longer for long footage.
+- There is an 800 MB upload cap. Large footage needs free disk space for a temporary copy, and CPU transcription can take considerably longer for long footage.
 
 ## Portfolio summary
 
@@ -47,3 +79,5 @@ The browser uploads the selected file to a Python standard-library HTTP server b
 ## Attribution
 
 Transcription uses the open-source faster-whisper implementation. This repository contains the application and editing workflow, not the transcription model itself. Review upstream model and package licenses before redistributing model weights.
+
+The included voice sample was synthesized using FFmpeg's `flite` filter. It contains no real speaker's recording.
